@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Partido Chad - Rubens Gabriel Aura</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f8;
+            color: #1c2538;
+        }
+
+        header {
+            background-color: #f4b942;
+            color: white;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h2 {
+            color: --                             #775717;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: bold;
+        }
+
+        .votacao {
+            background: linear-gradient(135deg, #111827, #374151);
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .votacao .titulo {
+            color: #f4b942;
+            font-size: 22px;
+            font-weight: bold;
+            letter-spacing: 3px;
+        }
+
+        .votacao h1 {
+            font-size: 60px;
+            margin: 15px 0;
+        }
+
+        .votacao h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .votacao p {
+            font-size: 20px;
+            line-height: 1.6;
+        }
+
+        .data {
+            display: inline-block;
+            background-color: #f4b942;
+            color: #111;
+            padding: 18px 35px;
+            border-radius: 12px;
+            margin-top: 30px;
+            font-size: 32px;
+            font-weight: bold;
+        }
+
+        .candidato {
+            padding: 70px 8%;
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            background-color: white;
+        }
+
+        .candidato-texto {
+            width: 60%;
+        }
+
+        .candidato-texto h1 {
+            color: #111827;
+            font-size: 45px;
+            margin-bottom: 10px;
+        }
+
+        .candidato-texto h2 {
+            color: #b8860b;
+            margin-bottom: 20px;
+        }
+
+        .candidato-texto p {
+            font-size: 18px;
+            line-height: 1.7;
+        }
+
+        .numero {
+            display: inline-block;
+            margin-top: 25px;
+            background-color: #111827;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        .foto {
+            width: 40%;
+            text-align: center;
+        }
+
+        .foto img {
+            width: 80%;
+            max-width: 350px;
+            border-radius: 20px;
+        }
+
+        section {
+            padding: 70px 8%;
+        }
+
+        section h2 {
+            text-align: center;
+            font-size: 35px;
+            color: #111827;
+            margin-bottom: 40px;
+        }
+
+        .partido {
+            background-color: #f4f6f8;
+            text-align: left;
+        }
+
+        .partido p {
+            max-width: 800px;
+            margin: auto;
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        .equipe {
+            background-color: white;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .card {
+            background-color: #f4f6f8;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            border-top: 5px solid #f4b942;
+        }
+
+        .card h3 {
+            color: #111827;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            line-height: 1.6;
+        }
+
+        .final {
+            background-color: #111827;
+            color: white;
+            text-align: center;
+        }
+
+        .final h2 {
+            color: #f4b942;
+            font-size: 40px;
+        }
+
+        .final p {
+            font-size: 20px;
+            line-height: 1.6;
+        }
+
+        .voto-destaque {
+            background: linear-gradient(135deg, #111827, #374151);
+            color: white;
+            text-align: center;
+            padding: 90px 8%;
+        }
+
+        .voto-destaque span {
+            color: #f4b942;
+            font-size: 22px;
+            font-weight: bold;
+            letter-spacing: 3px;
+        }
+
+        .voto-destaque h1 {
+            font-size: 60px;
+            margin: 20px 0;
+        }
+
+        .voto-destaque p {
+            max-width: 900px;
+            margin: 15px auto;
+            font-size: 19px;
+            line-height: 1.7;
+        }
+
+        .numero-voto {
+            display: inline-block;
+            margin: 30px 0;
+            padding: 20px 45px;
+            background-color: #f4b942;
+            color: #111;
+            border-radius: 15px;
+        }
+
+        .numero-voto small {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .numero-voto strong {
+            display: block;
+            font-size: 55px;
+            letter-spacing: 5px;
+        }
+
+        footer {
+            background-color: #080c13;
+            color: white;
+            text-align: center;
+            padding: 25px;
+            font-size: 14px;
+        }
+
+        @media (max-width: 800px) {
+
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .candidato {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .candidato-texto,
+            .foto {
+                width: 100%;
+            }
+
+            .votacao h1 {
+                font-size: 42px;
+            }
+
+            .voto-destaque h1 {
+                font-size: 42px;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+
+        <h2>PARTIDO CHAD</h2>
+
+        <nav>
+            <a href="#votacao">Votação</a>
+            <a href="#candidato">Candidato</a>
+            <a href="#partido">Partido</a>
+            <a href="#equipe">Equipe</a>
+        </nav>
+
+    </header>
+
+
+    <section class="votacao" id="votacao">
+
+        <div class="titulo">
+            ELEIÇÕES 2026
+        </div>
+
+        <h1>04 DE OUTUBRO</h1>
+
+        <h2>DIA DA VOTAÇÃO</h2>
+
+        <p>
+            Nesta atividade eleitoral, o dia da votação
+            acontece em 04 de outubro.
+        </p>
+
+        <div class="data">
+            04/10
+        </div>
+
+    </section>
+
+
+    <section class="candidato" id="candidato">
+
+        <div class="candidato-texto">
+
+            <h1>Rubens Gabriel Aura</h1>
+
+            <h2>Deputado Estadual</h2>
+
+            <p>
+                
+            </p>
+
+            <p>
+                Minha História
+
+                Meu nome é Rubens Gabriel Aura e sou um cidadão que acredita que a política deve estar próxima das pessoas. Ao longo da minha trajetória, aprendi que ouvir diferentes opiniões, respeitar as diferenças e trabalhar em equipe são fundamentais para construir uma sociedade melhor.
+            </p>
+
+            <p>
+                Minha vontade de entrar na política nasceu do desejo de participar mais ativamente das decisões que afetam a população. Acredito que um deputado estadual deve representar as necessidades do seu estado, dialogar com a comunidade e buscar soluções para os desafios do dia a dia.
+            </p>
+
+            <p>
+                Hoje, faço parte do Partido Chad (PCH), ao lado de uma equipe que compartilha o compromisso com o diálogo, a educação, a saúde, o emprego, o meio ambiente e o desenvolvimento das comunidades.
+            </p>
+
+            <p>
+                Nesta atividade eleitoral, apresento minha candidatura fictícia ao cargo de Deputado Estadual, com o número 67067. Minha trajetória representa a importância da participação cidadã e do envolvimento dos jovens com a democracia.
+            </p>
+
+            <div class="numero">
+                67067
+            </div>
+
+        </div>
+
+
+        <div class="foto">
+
+            <img src="rubens.jpg" alt="Rubens Gabriel Barbosa">
+
+        </div>
+
+    </section>
+
+
+    <section class="partido" id="partido">
+
+        <h2> Partido Chad — PCH </h2>
+
+        <p>
+            O Partido Chad (PCH) é um partido político fictício criado para esta atividade escolar. Seu objetivo é representar uma organização que valoriza a participação da população, o diálogo e a construção de propostas para diferentes áreas da sociedade.
+        </p>
+
+        <p>
+            O partido surgiu a partir da ideia de reunir pessoas com diferentes experiências e opiniões em torno de objetivos comuns. Para o PCH, ouvir a população é uma parte importante do processo político, pois diferentes comunidades possuem necessidades e desafios próprios.
+        </p>
+
+        <h2> Nossos Princípios</h2>
+
+        <p>
+            <p></p>strong>Educação: incentivar uma educação pública de qualidade e ampliar oportunidades para estudantes.
+        </p>
+
+        <p>
+            <strong>Saúde:</strong> defender melhorias nos serviços de saúde e no atendimento à população.
+        </p>
+
+        <p>
+            <strong>Trabalho e oportunidades:</strong> estimular a qualificação profissional e a criação de oportunidades.
+        </p>
+
+        <p>
+          <strong>Meio ambiente:</strong> apoiar a preservação ambiental e iniciativas de desenvolvimento sustentável.
+        </p>
+
+        <p>
+          <strong> Participação popular:</strong>  incentivar o diálogo entre representantes políticos e cidadãos.
+        </p>
+
+        <p>
+            <strong> Transparência:</strong> valorizar informações claras sobre decisões, propostas e ações políticas.
+        </p>
+
+        <p>
+            A proposta da atividade é simular uma campanha
+            eleitoral, apresentando candidato, partido,
+            equipe e informações sobre o processo de votação.
+        </p>
+
+    </section>
+
+
+    <section class="equipe" id="equipe">
+
+        <h2>Companheiros de Campanha</h2>
+
+        <div class="cards">
+
+            <div class="card">
+                <h3>Otávio Caneta</h3>
+                <p>
+                    Presidente - 67
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Mary Sigma</h3>
+                <p>
+                    Governadora MG - 67
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Arthur Coach</h3>
+                <p>
+                    Senador MG - 670
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Melinda Pill</h3>
+                <p>
+                    Senadora MG - 607
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Saulo Alfa</h3>
+                <p>
+                    Deputado Federal - 6767
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Maxxi Lima</h3>
+                <p>
+                    Deputado Estadual MG - 60707
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="voto-destaque">
+
+        <span>DIA DA VOTAÇÃO</span>
+
+        <h1>04 DE OUTUBRO</h1>
+
+        <p>
+            O dia da votação está chegando!
+        </p>
+
+        <p>
+            No dia 04 de outubro, das <strong>08:00 ás 17:00 </strong> acontece a votação no nosso
+            Brasilzão. Este é o momento de conhecer
+            as propostas apresentadas, participar do processo
+            democrático e exercer o direito de escolher, Não perca a hora e leve todos os 
+            documentos necessários, seu título de eleitor e um documento com foto!
+        </p>
+
+        <p>
+            o Partido Chad (PCH) apresenta
+            Rubens Gabriel Aura como candidato a
+            Deputado Estadual, com o número 67067.
+        </p>
+
+        <p>
+            Informe-se, conheça as propostas e participe da votação!
+        </p>
+
+        <div class="numero-voto">
+
+            <small>NÚMERO DO CANDIDATO</small>
+
+            <strong>67067</strong>
+
+        </div>
+
+        <h2>RUBENS GABRIEL AURA</h2>
+
+        <p>
+            Deputado Estadual • Partido Chad (PCH)
+        </p>
+
+    </section>
+
+
+</body>
+
+</html>
